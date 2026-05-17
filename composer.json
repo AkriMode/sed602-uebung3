@@ -1,0 +1,16 @@
+{
+  "name": "fernfh-webdev/uebung3",
+  "description": "Pipeline CI test repository",
+  "autoload": {
+    "psr-4": {
+      "AnnaVoelkl\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^8.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^12.0",
+    "squizlabs/php_codesniffer": "^3.0"
+  }
+}

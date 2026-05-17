@@ -3,17 +3,30 @@ image: php:8.4
 pipelines:
   default:
     - step:
-        name: Build
+        name: Install dependencies
         script:
-          - echo "Führe Build-Schritt aus..."
-          - echo "Keine echten Aktionen notwendig, nur Textausgabe."
+          - echo "Installing dependencies..."
+    - step:
+        name: Compile assets
+        script:
+          - echo "Compiling assets..."
     - step:
         name: Test
         script:
-          - echo "Führe Tests aus..."
-          - echo "Die Umgebung ist PHP 8.4"
+          - echo "Running tests..."
+          - composer global require squizlabs/php_codesniffer
+          - export PATH=~/.composer/vendor/bin:$PATH
+          - echo "Running PHP CodeSniffer on all PHP files"
+          - phpcs --standard=PSR12 --extensions=php .
     - step:
-        name: Deploy
+        name: Deploy to production
         script:
-          - echo "Führe Deployment aus..."
-          - echo "Pipeline erfolgreich abgeschlossen!"
+          - echo "Deploying to production..."
+    - step:
+        name: Migrate Database
+        script:
+          - echo "Migrating database..."
+    - step:
+        name: Cleanup
+        script:
+          - echo "Cleaning up..."

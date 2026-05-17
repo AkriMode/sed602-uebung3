@@ -1,0 +1,19 @@
+image: php:8.4
+
+pipelines:
+  default:
+    - step:
+        name: Build
+        script:
+          - echo "Führe Build-Schritt aus..."
+          - echo "Keine echten Aktionen notwendig, nur Textausgabe."
+    - step:
+        name: Test
+        script:
+          - echo "Führe Tests aus..."
+          - echo "Die Umgebung ist PHP 8.4"
+    - step:
+        name: Deploy
+        script:
+          - echo "Führe Deployment aus..."
+          - echo "Pipeline erfolgreich abgeschlossen!"
